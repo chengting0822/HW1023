@@ -3,7 +3,7 @@ using namespace std;
 long long temp[5][10000000]; 
 long long  count1 = 0;
 long long  count2 = 0;
-long long ackermann1(long long m, long long n)//¤@¯ë»¼°j
+long long ackermann1(long long m, long long n)//ä¸€èˆ¬éè¿´
 {
     if (m == 0) {
         count2++;
@@ -16,7 +16,7 @@ long long ackermann1(long long m, long long n)//¤@¯ë»¼°j
     count2++;
     return ackermann1(m - 1, ackermann1(m, n - 1));
 }
-long long ackermann(long long m, long long n) //Àu¤Æ»¼°j
+long long ackermann(long long m, long long n) //å„ªåŒ–éè¿´
 {
     if (temp[m][n] != -1) {
         count1++;
@@ -37,21 +37,21 @@ long long ackermann(long long m, long long n) //Àu¤Æ»¼°j
 int main() {
     long long m, n;
 
-    //ªì©l¤Æ temp °}¦C
+    //åˆå§‹åŒ– temp é™£åˆ—
     for (int i = 0; i < 5; ++i) {
         for (int j = 0; j < 10000000; ++j) {
             temp[i][j] = -1;  
         }
     }
 
-    cout << "½Ğ¿é¤J m ©M n ªº­È¡G";
+    cout << "è«‹è¼¸å…¥ m å’Œ n çš„å€¼ï¼š";
     cin >> m >> n;
-    // ­pºâ Ackermann ¨ç¼Æ
+    // è¨ˆç®— Ackermann å‡½æ•¸
     long long result = ackermann(m, n);
     long long result1 = ackermann1(m, n);
     
-    cout <<"¤@¯ë»¼°j:"<<endl<< "A(" << m << ", " << n << ") = " << result << "\n" << "Á`¦@»¼°j:" << count1 << "¦¸" << endl;
-    cout << "Àu¤Æ»¼°j:" << endl << "A(" << m << ", " << n << ") = " << result1 << "\n" << "Á`¦@»¼°j:" << count2 << "¦¸" << endl;
+    cout <<"ä¸€èˆ¬éè¿´:"<<endl<< "A(" << m << ", " << n << ") = " << result << "\n" << "ç¸½å…±éè¿´:" << count2 << "æ¬¡" << endl;
+    cout << "å„ªåŒ–éè¿´:" << endl << "A(" << m << ", " << n << ") = " << result1 << "\n" << "ç¸½å…±éè¿´:" << count1 << "æ¬¡" << endl;
 
 
     return 0;
